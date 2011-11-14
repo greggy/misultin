@@ -19,6 +19,17 @@ Run the appropriate script:
 This script will compile the .erl files in the Misultin src directory and save the compiled files into the
 ebin directory.
 
+    1.1 Dependents
+
+    Misultin uses few functions from inets. If you use misultin in your project and use rebar to generate
+    releases, you should add lines into reltool.config like (the default policy is exclude all):
+
+        {sys, [
+            {incl_cond, exclude},
+            ...
+            {app, inets, [{incl_cond, include}]},
+            ...
+
 2. (Optional) Copy Misultin files
 
 This optional step will allow Misultin to be called from modules running from any directory on your file
